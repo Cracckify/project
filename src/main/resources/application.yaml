@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: Ecommerce
+
+server:
+  port: 8000
