@@ -4,7 +4,7 @@ import com.crackify.ecommerce.entitties.Product;
 import com.crackify.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+@RestController
 @RequestMapping("/product")
 public class ProductController {
 
