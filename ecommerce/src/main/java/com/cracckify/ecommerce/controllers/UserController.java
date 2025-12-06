@@ -12,12 +12,6 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-//    private final UserService service;
-
-//    public UserController(UserService service) {
-//        this.service = service;
-//    }
-
     @Autowired
     @Qualifier("externalUserService")
     UserService userService;
@@ -38,19 +32,4 @@ public class UserController {
         return "User created: " + user.getUserId();
     }
 
-
-
-
-//    // UPDATE
-//    @PutMapping("/{id}")
-//    public User updateUser(@PathVariable Long id, @RequestBody User user) {
-//        return service.updateUser(id, user);
-//    }
-//
-//    // DELETE
-//    @DeleteMapping("/{id}")
-//    public String delete(@PathVariable Long id) {
-//        service.deleteUser(id);
-//        return "User deleted successfully";
-//    }
 }
