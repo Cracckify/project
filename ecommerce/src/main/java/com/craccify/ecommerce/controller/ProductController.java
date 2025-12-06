@@ -3,6 +3,7 @@ package com.craccify.ecommerce.controller;
 import com.craccify.ecommerce.model.Product;
 import com.craccify.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,12 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
+    @Qualifier("productServiceImpl")
     ProductService productService;
+
+    @Autowired
+    @Qualifier("externalProductServiceImpl")
+    ProductService externalProductService;
 
     @PostMapping("/create")
     public ResponseEntity<String> createProduct(@RequestBody Product product) {
@@ -35,6 +41,21 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<List<Product>> getProducts() {
         return ResponseEntity.ok(productService.getAllProducts());
+    }
+
+    @GetMapping("/externalProducts")
+    public ResponseEntity<List<Product>> getExternalProducts() {
+        return ResponseEntity.ok(externalProductService.getAllProducts());
+    }
+
+    @GetMapping("/get/{id}")
+    public Product getProductById(@PathVariable  Long id) {
+        return productService.getProductById(id);
+    }
+
+    @GetMapping("/externalProducts/get/{id}")
+    public Product getExternalProductById(@PathVariable  Long id) {
+        return externalProductService.getProductById(id);
     }
 
     @PutMapping("/update/{id}")

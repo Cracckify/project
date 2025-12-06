@@ -21,6 +21,10 @@ public class ProductRepository {
         return productList.values().stream().collect(Collectors.toList());
     }
 
+    public Product getProductById(Long id){
+        return productList.get(id);
+    }
+
     public Product updateProduct(Long id, Product product){
         return productList.put(id, product);
     }
