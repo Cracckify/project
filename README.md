@@ -1,2 +1,1 @@
-# project
-Cracckify 1st Elite Project
+# Ecommerce Spring Boot App
