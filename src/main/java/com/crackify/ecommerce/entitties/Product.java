@@ -1,21 +1,30 @@
 package com.crackify.ecommerce.entitties;
 
 
-import com.crackify.ecommerce.entitties.Category;
+//import com.crackify.ecommerce.entitties.Category;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name="Product")
 public class Product {
+    @Id
     private long id;
     private String title;
     private String description;
     private int price;
-    private Category category;
+//    private Category category;
 
-    public Product(long id, String title, String description, int price, Category category) {
+    public Product(long id, String title, String description, int price) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
-        this.category = category;
+//        this.category = category;
+    }
+
+    public Product() {
     }
 
     public long getId() {
@@ -50,11 +59,11 @@ public class Product {
         this.price = price;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+//    public Category getCategory() {
+//        return category;
+//    }
+//
+//    public void setCategory(Category category) {
+//        this.category = category;
+//    }
 }

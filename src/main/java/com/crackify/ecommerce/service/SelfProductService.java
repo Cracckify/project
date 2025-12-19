@@ -13,17 +13,18 @@ public class SelfProductService implements ProductService{
 
     @Override
     public Product getProduct(long id) {
-        return pr.getProductById(id);
+        return pr.getById(id);
     }
 
     @Override
     public Product createProduct(Product product) {
-        return pr.createProduct(product);
+        return pr.save(product);
 
     }
 
     @Override
     public String deleteproduct(long id) {
-       return pr.deleteProduct(id);
+        pr.deleteById(id);
+        return "product deleted  with id :"+ id;
     }
 }
