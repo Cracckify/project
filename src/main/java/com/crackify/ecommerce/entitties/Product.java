@@ -2,11 +2,13 @@ package com.crackify.ecommerce.entitties;
 
 
 //import com.crackify.ecommerce.entitties.Category;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
+@JsonIgnoreProperties
 @Table(name="Product")
 public class Product {
     @Id
